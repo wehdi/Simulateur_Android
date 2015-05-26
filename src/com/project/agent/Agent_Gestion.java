@@ -15,6 +15,7 @@ package com.project.agent;
 import jade.core.AID;
 import jade.core.Agent;
 import jade.core.behaviours.Behaviour;
+import jade.core.behaviours.CyclicBehaviour;
 import jade.core.behaviours.OneShotBehaviour;
 import jade.lang.acl.ACLMessage;
 import jade.lang.acl.MessageTemplate;
@@ -47,10 +48,11 @@ public class Agent_Gestion extends Agent {
 			}
 		}
 		bean = new Beans();
-		addBehaviour(new GetPlanning(this));
-		addBehaviour(new GroupeRevision(this));
-		addBehaviour(new NotifyABSProf(this));
-		addBehaviour(new UpdatePlanning());
+		addBehaviour(new GetPlanningBehaviour(this));
+		addBehaviour(new GroupeRevisionBehaviour(this));
+		addBehaviour(new NotifyABSProfBehaviour(this));
+		addBehaviour(new UpdatePlanningBehaviour());
+		addBehaviour(new GetHelpDemandeBehaviour());
 
 		Beans.setAgentGestion(this);
 	}
@@ -60,10 +62,10 @@ public class Agent_Gestion extends Agent {
 	 * 
 	 *
 	 */
-	private class GetPlanning extends Behaviour {
+	private class GetPlanningBehaviour extends Behaviour {
 		private boolean stop = false;
 
-		public GetPlanning(Agent a) {
+		public GetPlanningBehaviour(Agent a) {
 			super(a);
 		}
 
@@ -125,10 +127,10 @@ public class Agent_Gestion extends Agent {
 	 * Comportement qui permet de recevoir le nombre de groupe actuellement
 	 * entrain de reviser
 	 */
-	private class GroupeRevision extends Behaviour {
+	private class GroupeRevisionBehaviour extends Behaviour {
 		NombreGroupeBean nbrGroupeBen = new NombreGroupeBean();
 
-		public GroupeRevision(Agent_Gestion agent_Gestion) {
+		public GroupeRevisionBehaviour(Agent_Gestion agent_Gestion) {
 
 		}
 
@@ -165,9 +167,9 @@ public class Agent_Gestion extends Agent {
 	 *
 	 */
 	@SuppressWarnings("unused")
-	private class NotifyABSProf extends Behaviour {
+	private class NotifyABSProfBehaviour extends Behaviour {
 
-		public NotifyABSProf(Agent_Gestion agent_Gestion) {
+		public NotifyABSProfBehaviour(Agent_Gestion agent_Gestion) {
 			// TODO Auto-generated constructor stub
 		}
 
@@ -208,10 +210,8 @@ public class Agent_Gestion extends Agent {
 	 * @author ProBook 450g2
 	 *
 	 */
-	private class UpdatePlanning extends Behaviour {
+	private class UpdatePlanningBehaviour extends Behaviour {
 
-		@SuppressWarnings("unchecked")
-		@Override
 		public void action() {
 			MessageTemplate model = MessageTemplate.and(
 					MessageTemplate.MatchPerformative(ACLMessage.INFORM),
@@ -225,8 +225,8 @@ public class Agent_Gestion extends Agent {
 				try {
 					bean.setPlanningTab((ArrayList<String>) msgg
 							.getContentObject());
-					bean.setPlanningTabUpdated((ArrayList<String>) msgg
-							.getContentObject());
+					bean.setPlanningTabUpdated(((ArrayList<String>) msgg
+							.getContentObject()));
 					block();
 				} catch (UnreadableException e) {
 					// TODO Auto-generated catch block
@@ -342,8 +342,41 @@ public class Agent_Gestion extends Agent {
 		}
 
 	}
-	public void sendHelpMe(String message,String module,String name){
+
+	public void sendHelpMe(String message, String module, String name) {
 		addBehaviour(new HelpMeBehaviour(message, module, name));
-		
+
+	}
+
+	/**
+	 * 
+	 * @author ProBook 450g2
+	 *
+	 */
+	private class GetHelpDemandeBehaviour extends CyclicBehaviour {
+		@Override
+		public void action() {
+			MessageTemplate model = MessageTemplate.and(
+					MessageTemplate.MatchPerformative(ACLMessage.INFORM),
+					MessageTemplate.MatchConversationId("helpme"));
+			ACLMessage msgg = myAgent.receive(model);
+			if (msgg != null) {
+				try {
+					ArrayList<String> msg = (ArrayList<String>) msgg
+							.getContentObject();
+					bean.setContetnHelp(msg);
+				} catch (UnreadableException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+			}
+
+		}
+
+	}
+
+	public void setDemandeHepPlanning() {
+		addBehaviour(new GetHelpDemandeBehaviour());
 	}
 }

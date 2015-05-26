@@ -17,7 +17,7 @@
 
         <activity
             android:name=".LunchPlatform"
-            android:label="Login ..." >
+            android:label="Authentification" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,14 +31,14 @@
         <activity
             android:name=".Planning"
             android:configChanges="orientation|screenSize"
-            android:label="Assistant"
+            android:label="Emploi du temps"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
         <activity
             android:name=".MapClass"
             android:configChanges="orientation|screenSize"
-            android:label="Search"
+            android:label="Groupes de revisions"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
@@ -57,6 +57,10 @@
         <activity
             android:name=".IHelp"
             android:label="Aider les autres" >
+        </activity>
+        <activity
+            android:name=".OtherActivities"
+            android:label="Autres" >
         </activity>
 
         <service

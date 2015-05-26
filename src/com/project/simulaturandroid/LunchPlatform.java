@@ -13,16 +13,13 @@ import jade.android.RuntimeService;
 import jade.android.RuntimeServiceBinder;
 import jade.wrapper.StaleProxyException;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -44,7 +41,7 @@ public class LunchPlatform extends Activity implements View.OnClickListener {
 	private RuntimeServiceBinder runtimeServiceBinder;
 	private ServiceConnection serviceConnection;
 	private AgentContainerHandler agentContainerHandler;
-	private Beans bean;
+	
 	
 	
 	
@@ -55,7 +52,7 @@ public class LunchPlatform extends Activity implements View.OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_lunch_main);
-		bean = new Beans();
+		//bean = new Beans();
 		buttonLunch = (Button) findViewById(R.id.buttonSeConnecter);
 		buttonLunch.setOnClickListener(this);
 		textUserName = (EditText) findViewById(R.id.textUserName);
@@ -87,8 +84,9 @@ public class LunchPlatform extends Activity implements View.OnClickListener {
 				 * Creation des 3 agents du smartphone
 				 */
 				creatAgent("agentInterface", Agent_Interface.class.getName());
-				bean.setLogin(userName);
-				bean.setMdp(password);
+				Beans.setLogin(userName);
+				Beans.setMdp(password);
+				Beans.setContext(getApplicationContext());
 				creatAgent("agentGestion", Agent_Gestion.class.getName());
 				creatAgent("agentContexte", Agent_Contexte.class.getName());
 

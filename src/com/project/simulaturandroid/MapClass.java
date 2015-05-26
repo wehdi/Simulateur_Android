@@ -3,6 +3,7 @@ package com.project.simulaturandroid;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -46,7 +47,36 @@ public class MapClass extends Activity {
 		float y = 170;
 
 		switch (nbrGroupe) {
+		case 0:
 
+			new AlertDialog.Builder(this)
+					.setTitle("Suggestion")
+					.setMessage(
+							"Aucun groupe detecer vous les vous en creer un ?")
+					.setCancelable(true)
+					.setNegativeButton(android.R.string.no,
+							new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog,
+										int which) {
+									dialog.dismiss();
+									dialog.cancel();
+								}
+							})
+					.setPositiveButton("Oui",
+							new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog,
+										int which) {
+									dialog.dismiss();
+									dialog.cancel();
+									Intent intent = new Intent(
+											getApplicationContext(),
+											CreatGroupe.class);
+									MapClass.this.startActivity(intent);
+								}
+							})
+
+					.setIcon(android.R.drawable.ic_dialog_info).show();
+			break;
 		case 1:
 			Paint paint1 = new Paint();
 			canvas.drawCircle(x, y, radius, paint1);
@@ -105,11 +135,10 @@ public class MapClass extends Activity {
 
 	public boolean onTouchEvent(MotionEvent event) {
 
-		float x = (event.getX());
+		float x = event.getX();
 		float y = event.getY();
 		if (is1 && !is2 && !is3 && !is4) {
 			if (x > 90 && x < 175 && y < 190 && y > 130) {
-
 				setInformation("1", "Groupe1");
 			}
 

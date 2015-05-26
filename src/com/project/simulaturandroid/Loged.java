@@ -1,5 +1,7 @@
 package com.project.simulaturandroid;
 
+import com.project.metier.Beans;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -9,6 +11,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 /**
  * 
@@ -31,8 +34,10 @@ public class Loged extends Activity implements View.OnClickListener {
 	private Button buttonIHelp;
 	private Button buttonCreat;
 	private Button buttonSearch;
+	private Button buttonOther;
 	private ProgressDialog barProgress;
 	private Handler updateBarHandler;
+	private TextView textYserName;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -47,13 +52,16 @@ public class Loged extends Activity implements View.OnClickListener {
 		buttonIHelp = (Button) findViewById(R.id.buttonIHelp);
 		buttonCreat = (Button) findViewById(R.id.buttonCreate);
 		buttonSearch = (Button) findViewById(R.id.buttonSearch);
+		buttonOther = (Button) findViewById(R.id.buttonOther);
+		textYserName = (TextView) findViewById(R.id.textUserName);
 		buttonPlanning.setOnClickListener(this);
 		buttonExit.setOnClickListener(this);
 		buttonHelp.setOnClickListener(this);
 		buttonIHelp.setOnClickListener(this);
 		buttonCreat.setOnClickListener(this);
 		buttonSearch.setOnClickListener(this);
-
+		buttonOther.setOnClickListener(this);
+		textYserName.setText("Bienvenu "+Beans.getLogin());
 		updateBarHandler = new Handler();
 	}
 
@@ -81,9 +89,13 @@ public class Loged extends Activity implements View.OnClickListener {
 			Intent intentHelpMe = new Intent(Loged.this, HelpMe.class);
 			this.startActivity(intentHelpMe);
 			break;
-		case R.id.buttonIHelp :
+		case R.id.buttonIHelp:
 			Intent intentIHelp = new Intent(Loged.this, IHelp.class);
 			this.startActivity(intentIHelp);
+			break;
+		case R.id.buttonOther:
+			Intent intentOther = new Intent(Loged.this, OtherActivities.class);
+			this.startActivity(intentOther);
 			break;
 		default:
 			Log.e("Loged", "Default switch used !!");
@@ -120,6 +132,13 @@ public class Loged extends Activity implements View.OnClickListener {
 
 		}).start();
 		;
+	}
+	/*
+	 * (non-Javadoc)
+	 * @see android.app.Activity#onBackPressed()
+	 */
+	public void onBackPressed() {
+	    // do nothing.
 	}
 
 	/*

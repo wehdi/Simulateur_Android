@@ -2,67 +2,75 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical">
+    android:orientation="vertical" >
 
     <Button
-        android:id="@+id/button1"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignLeft="@+id/buttonSearch"
-        android:layout_alignTop="@+id/buttonPlanning"
+        android:id="@+id/buttonOther"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/buttonHelp"
+        android:layout_alignLeft="@+id/buttonHelp"
         android:text="Voir Activités" />
 
     <Button
-        android:id="@+id/buttonIHelp"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignLeft="@+id/buttonCreate"
-        android:layout_below="@+id/buttonSearch"
-        android:text="Aidez les autres" />
-
-    <Button
-        android:id="@+id/buttonPlanning"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="24dp"
-        android:text="Emploi du temps" />
-
-    <Button
         android:id="@+id/buttonHelp"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/buttonSearch"
-        android:layout_marginRight="35dp"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/buttonIHelp"
+        android:layout_alignLeft="@+id/buttonIHelp"
         android:minWidth="100dp"
         android:text="Demander aide" />
 
     <Button
+        android:id="@+id/buttonCreate"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/buttonOther"
+        android:layout_alignLeft="@+id/buttonOther"
+        android:text="Creer groupe" />
+
+    <Button
         android:id="@+id/buttonSearch"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignLeft="@+id/buttonHelp"
-        android:layout_below="@+id/button1"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/buttonCreate"
+        android:layout_alignLeft="@+id/buttonCreate"
         android:text="Recherche groupe" />
 
     <Button
-        android:id="@+id/buttonCreate"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_above="@+id/buttonIHelp"
-        android:layout_alignLeft="@+id/buttonPlanning"
-        android:text="Creer groupe" />
+        android:id="@+id/buttonPlanning"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/buttonSearch"
+        android:layout_alignLeft="@+id/buttonSearch"
+        android:text="Emploi du temps" />
 
     <Button
         android:id="@+id/buttonExit"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="14dp"
         android:text="Exit" />
+
+    <Button
+        android:id="@+id/buttonIHelp"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/buttonExit"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="14dp"
+        android:text="Aidez les autres" />
+
+    <TextView
+        android:id="@+id/textUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonPlanning"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp"
+        android:text="....."
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>

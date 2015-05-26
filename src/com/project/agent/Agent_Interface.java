@@ -2,13 +2,12 @@ package com.project.agent;
 
 import jade.core.AID;
 import jade.core.Agent;
-import jade.core.behaviours.Behaviour;
-import jade.core.behaviours.ParallelBehaviour;
-import jade.core.behaviours.SequentialBehaviour;
+import jade.core.behaviours.CyclicBehaviour;
+import jade.core.behaviours.OneShotBehaviour;
 import jade.lang.acl.MessageTemplate;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
+import android.widget.Toast;
 
 import com.project.metier.Beans;
 import com.project.metier.Const;
@@ -23,17 +22,13 @@ public class Agent_Interface extends Agent {
 	private static final long serialVersionUID = 1L;
 	private final String TAG = "Agent_Interface";
 	private Context context;
-	private boolean stop1 = false;
-	private boolean stop2 = false;
-	private Beans bean;
 
 	@Override
 	protected void setup() {
-		bean = new Beans();
+
 		/**
 		 * Implementation d'un comportement sequentiel !
 		 */
-		SequentialBehaviour comportementSequ = new SequentialBehaviour();
 		/**
 		 * Recupere le contexte de l'application
 		 */
@@ -43,9 +38,12 @@ public class Agent_Interface extends Agent {
 				context = (Context) args[0];
 			}
 		}
-		comportementSequ.addSubBehaviour(new Lo(this));
-		comportementSequ.addSubBehaviour(new WaitConfiarmationPlanning(this));
-		addBehaviour(comportementSequ);
+		// comportementSequ.addSubBehaviour(new SendIdsBehaviours(this));
+		addBehaviour(new SendIdsBehaviours(this));
+		addBehaviour(new WaitConfiarmationPlanning(this));
+		// comportementSequ.addSubBehaviour(new
+		// WaitConfiarmationPlanning(this));
+		// addBehaviour(comportementSequ);
 	}
 
 	/**
@@ -54,13 +52,13 @@ public class Agent_Interface extends Agent {
 	 * @author ProBook 450g2
 	 *
 	 */
-	public class Lo extends Behaviour {
-		private Beans bean;
+	public class SendIdsBehaviours extends OneShotBehaviour {
+		// private Beans bean;
 		private static final long serialVersionUID = 1L;
 
-		public Lo(Agent a) {
+		public SendIdsBehaviours(Agent a) {
 			super(a);
-			bean = new Beans();
+			// bean = new Beans();
 
 		}
 
@@ -68,8 +66,8 @@ public class Agent_Interface extends Agent {
 			/**
 			 * Recuperation des ids entrees par l'etudiant
 			 */
-			String userName = bean.getLogin();
-			String mdp = bean.getMdp();
+			String userName = Beans.getLogin();
+			String mdp = Beans.getMdp();
 
 			/**
 			 * Envoi des ids a l'agent Controlleur
@@ -79,17 +77,11 @@ public class Agent_Interface extends Agent {
 			requestLoginMessage.setConversationId("id");
 			requestLoginMessage.setContent(userName + "|" + mdp);
 			AID dummyAid = new AID();
-			dummyAid.setName("agentController@" + Const.ipAdress + ":1099/JADE");
+			dummyAid.setName("agentScolar@" + Const.ipAdress + ":1099/JADE");
 			dummyAid.addAddresses("http://" + Const.ipAdress + ":7778/acc");
 			requestLoginMessage.addReceiver(dummyAid);
 			send(requestLoginMessage);
-			stop1 = true;
 
-		}
-
-		@Override
-		public boolean done() {
-			return stop1;
 		}
 	}
 
@@ -99,7 +91,7 @@ public class Agent_Interface extends Agent {
 	 * @author ProBook 450g2
 	 *
 	 */
-	public class WaitConfiarmationPlanning extends Behaviour {
+	public class WaitConfiarmationPlanning extends CyclicBehaviour {
 		private static final long serialVersionUID = 1L;
 
 		public WaitConfiarmationPlanning(Agent a) {
@@ -121,32 +113,26 @@ public class Agent_Interface extends Agent {
 			if (reponseLoginMessage != null) {
 				String validateConnection = reponseLoginMessage.getContent()
 						.toString();
-				//validateConnection.substring(0, 2);
-
 				if (validateConnection.substring(0, 2).equals("ok")) {
 					Agent_Interface.this.context.startActivity(new Intent(
 							Agent_Interface.this.context,
 							com.project.simulaturandroid.Loged.class));
-					bean.setLogin(validateConnection.substring(3, validateConnection.length()));
-					
-					stop2 = true;
+					Beans.setLogin(validateConnection.substring(3,
+							validateConnection.length()));
 					block();
 				} else {
-					Log.i(TAG, "je n'ai pas pu me connecter"
-							+ validateConnection);
+					Toast.makeText(Beans.getContext(), "Erreur dans le login",
+							Toast.LENGTH_SHORT).show();
+					block();
 				}
 				/**
 				 * Si nan l'agent est blocké
 				 */
 			} else {
+
 				block();
 
 			}
-		}
-
-		@Override
-		public boolean done() {
-			return stop2;
 		}
 
 	}

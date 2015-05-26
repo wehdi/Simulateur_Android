@@ -10,16 +10,36 @@ package com.project.metier;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import android.content.Context;
+
 import com.project.agent.Agent_Gestion;
 import com.project.agent.Agent_Interface;
 
 @SuppressWarnings("serial")
 public class Beans implements Serializable, jade.util.leap.Serializable {
 
-	private static ArrayList<String> planningTab = new ArrayList();
-	private static ArrayList<String> planningTabUpdated = new ArrayList();
+	private static ArrayList<String> planningTab = new ArrayList<String>();
+	private static ArrayList<String> planningTabUpdated = new ArrayList<String>();
 	private static Agent_Gestion agentGestion;
 	private static Agent_Interface agentInterface;
+	private static Context context;
+	private static ArrayList<String> contetnHelp = new ArrayList<String>();
+
+	public ArrayList<String> getContetnHelp() {
+		return contetnHelp;
+	}
+
+	public static void setContetnHelp(ArrayList<String> contetnHelp) {
+		Beans.contetnHelp = contetnHelp;
+	}
+
+	public static Context getContext() {
+		return context;
+	}
+
+	public static void setContext(Context context) {
+		Beans.context = context;
+	}
 
 	public static Agent_Interface getAgentInterface() {
 		return agentInterface;

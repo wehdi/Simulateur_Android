@@ -1,70 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-     
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/login"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:scaleType="centerCrop"
     tools:context="com.project.simulaturandroid.LunchPlatform" >
 
     <!--
-  android:background="@drawable/backgroundlogin2"
   android:background="@drawable/round_button"
         android:gravity="center_vertical|center_horizontal"
-        android:textColor="#fff" -->
- 
+        android:textColor="#fff"
+    -->
+
     <Button
         android:id="@+id/buttonSeConnecter"
-        android:layout_width="100dp"
+        android:layout_width="150dp"
         android:layout_height="80dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="79dp"
-        android:layout_marginLeft="85dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="51dp"
+        android:drawableLeft="@drawable/ic_ihelp"
         android:text="Login" />
-   
-  
+
     <EditText
         android:id="@+id/textUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/labelUserName"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="21dp"
+        android:layout_above="@+id/textPassword"
+        android:layout_alignLeft="@+id/textPassword"
+        android:layout_marginBottom="44dp"
         android:ems="10"
+        android:hint="UserName"
         android:text="@string/textUserName" />
 
     <EditText
         android:id="@+id/textPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonSeConnecter"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_marginBottom="48dp"
         android:ems="10"
+        android:hint="Mot de passe"
         android:inputType="textPassword"
-        android:text="@string/textPassword2" />
+        android:text="@string/textPassword2" >
+
+        <requestFocus />
+    </EditText>
 
     <TextView
-        android:id="@+id/labelUserName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/textUserName"
         android:layout_alignLeft="@+id/textUserName"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="74dp"
-        android:text="@string/labelUser" />
-
-    <TextView
-        android:id="@+id/labelPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textPassword"
-        android:layout_alignLeft="@+id/textUserName"
-        android:text="Mot de passe :" />
-    
-   
-          
- 
+        android:layout_marginBottom="36dp"
+        android:drawableLeft="@drawable/ic_welc"
+        android:drawablePadding="6dp"
+        android:text="Bienvenu"
+        android:textSize="35dp" />
 
 </RelativeLayout>
