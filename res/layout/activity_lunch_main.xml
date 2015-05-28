@@ -15,6 +15,7 @@
   android:background="@drawable/round_button"
         android:gravity="center_vertical|center_horizontal"
         android:textColor="#fff"
+          android:drawableLeft="@drawable/ic_ihelp"
     -->
 
     <Button
@@ -24,8 +25,10 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="51dp"
-        android:drawableLeft="@drawable/ic_ihelp"
-        android:text="Login" />
+        android:background="@drawable/flat_selector"
+        android:text="Login"
+        android:textColor="@color/GhostWhite"
+        android:textSize="25dp" />
 
     <EditText
         android:id="@+id/textUserName"
@@ -36,7 +39,8 @@
         android:layout_marginBottom="44dp"
         android:ems="10"
         android:hint="UserName"
-        android:text="@string/textUserName" />
+        android:text="@string/textUserName"
+        android:textColorHint="@color/SeaGreen" />
 
     <EditText
         android:id="@+id/textPassword"
@@ -48,7 +52,8 @@
         android:ems="10"
         android:hint="Mot de passe"
         android:inputType="textPassword"
-        android:text="@string/textPassword2" >
+        android:text="@string/textPassword2"
+        android:textColorHint="@color/SeaGreen" >
 
         <requestFocus />
     </EditText>
@@ -60,9 +65,11 @@
         android:layout_above="@+id/textUserName"
         android:layout_alignLeft="@+id/textUserName"
         android:layout_marginBottom="36dp"
-        android:drawableLeft="@drawable/ic_welc"
+        android:drawableLeft="@drawable/ic_student64"
         android:drawablePadding="6dp"
         android:text="Bienvenu"
-        android:textSize="35dp" />
+        android:textSize="40dp" />
+
+  
 
 </RelativeLayout>

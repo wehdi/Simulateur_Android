@@ -134,40 +134,54 @@ public class MapClass extends Activity {
 	 */
 
 	public boolean onTouchEvent(MotionEvent event) {
-
+		String Newligne=System.getProperty("line.separator"); 
 		float x = event.getX();
 		float y = event.getY();
 		if (is1 && !is2 && !is3 && !is4) {
 			if (x > 90 && x < 175 && y < 190 && y > 130) {
-				setInformation("1", "Groupe1");
+				// Cas de 1
+				setInformation("Premier groupe", "Module revisé :  Poo "+Newligne
+						+ "Membres : mehdi - Rahim "+Newligne + "Status : Ouvert"+Newligne +"Salle : 1");
 			}
 
 		} else if (is2 && is1 && !is3 && !is4) {
+			// Cas de 2
 			if (x > 90 && x < 175 && y < 190 && y > 130) {
-				setInformation("1", "groupe 1");
+				setInformation("Premier groupe", "Module revisé :  Poo "+Newligne
+						+ "Membres : mehdi - Rahim "+Newligne + "Status : Ouvert"+Newligne +"Salle : 12");
 
 			} else if (x > 90 && x < 175 && y < 280 && y > 215) {
-				setInformation("2", "groupe 2");
+				setInformation("Second groupe", "Module revisé :  web "+Newligne
+						+ "Membres : Rahim - moussa "+Newligne + "Status : Fermer"+Newligne +"Salle : 2");
 			}
 		} else if (is3 && is2 && is3 & !is4) {
+			// Cas de 3
 			if (x > 90 && x < 175 && y < 190 && y > 130) {
-				setInformation("1", "groupe 1");
+				setInformation("Premier groupe", "Module revisé :  Poo "+Newligne
+						+ "Membres : mehdi - Rahim "+Newligne + "Status : Ouvert"+Newligne +"Salle : 10");
 
 			} else if (x > 90 && x < 175 && y < 280 && y > 215) {
-				setInformation("2", "groupe 2");
+				setInformation("Second groupe", "Module revisé :  web "+Newligne
+						+ "Membres : Rahim - moussa - Nourou "+Newligne + "Status : Fermer"+Newligne +"Salle : 20");
 			} else if (x > 90 && x < 175 && y < 440 && y > 385) {
-				setInformation("3", "groupe 3");
+				setInformation("Troisieme groupe", "Module revisé :  web "+Newligne
+						+ "Membres : Rahim - moussa -mehdi "+Newligne + "Status : Fermer"+Newligne +"Salle : 21");
 			}
 		} else if (is3 && is2 && is3 & is4) {
+			// Cas de 4
 			if (x > 90 && x < 175 && y < 190 && y > 130) {
-				setInformation("1", "groupe 1");
+				setInformation("Premier groupe", "Module revisé :  Poo "+Newligne
+						+ "Membres : mehdi - Rahim "+Newligne + "Status : Ouvert"+Newligne +"Salle : 10");
 
 			} else if (x > 90 && x < 175 && y < 280 && y > 215) {
-				setInformation("2", "groupe 2");
+				setInformation("Second groupe", "Module revisé :  web "+Newligne
+						+ "Membres : Rahim - moussa "+Newligne + "Status : Fermer" +Newligne +"Salle : 2");
 			} else if (x > 90 && x < 175 && y < 440 && y > 385) {
-				setInformation("3", "groupe 3");
+				setInformation("Troisieme groupe", "Module revisé : xml "+Newligne
+						+ "Membres : Rahim - moussa - mehdi "+Newligne + "Status : Fermer"+Newligne +"Salle : 14");
 			} else if (x > 600 && x < 660 && y < 365 && y > 300) {
-				setInformation("4", "groupe 4");
+				setInformation("Quatriéme groupe", "Module revisé :  Poo "+Newligne
+						+ "Membres : Nourou - mehdi "+Newligne + "Status : ouvert"+Newligne +"Salle : 4");
 			}
 		}
 		return super.onTouchEvent(event);
@@ -180,9 +194,9 @@ public class MapClass extends Activity {
 	 * @param msg
 	 */
 
-	private void setInformation(String nbr, String msg) {
+	private void setInformation(String title, String msg) {
 		new AlertDialog.Builder(this)
-				.setTitle("Information sur le groupe " + nbr)
+				.setTitle("Information sur le " + title)
 				.setMessage(msg)
 				.setCancelable(true)
 				.setNegativeButton(android.R.string.no,

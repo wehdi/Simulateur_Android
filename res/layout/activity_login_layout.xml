@@ -6,44 +6,44 @@
 
     <Button
         android:id="@+id/buttonOther"
-        android:layout_width="200dp"
+        android:layout_width="240dp"
         android:layout_height="50dp"
         android:layout_above="@+id/buttonHelp"
         android:layout_alignLeft="@+id/buttonHelp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/flat_selector"
         android:text="Voir Activités" />
 
     <Button
         android:id="@+id/buttonHelp"
-        android:layout_width="200dp"
+        android:layout_width="240dp"
         android:layout_height="50dp"
         android:layout_above="@+id/buttonIHelp"
         android:layout_alignLeft="@+id/buttonIHelp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/flat_selector"
         android:minWidth="100dp"
         android:text="Demander aide" />
 
     <Button
         android:id="@+id/buttonCreate"
-        android:layout_width="200dp"
+        android:layout_width="240dp"
         android:layout_height="50dp"
         android:layout_above="@+id/buttonOther"
         android:layout_alignLeft="@+id/buttonOther"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/flat_selector"
         android:text="Creer groupe" />
 
     <Button
         android:id="@+id/buttonSearch"
-        android:layout_width="200dp"
+        android:layout_width="240dp"
         android:layout_height="50dp"
         android:layout_above="@+id/buttonCreate"
         android:layout_alignLeft="@+id/buttonCreate"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/flat_selector"
         android:text="Recherche groupe" />
-
-    <Button
-        android:id="@+id/buttonPlanning"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_above="@+id/buttonSearch"
-        android:layout_alignLeft="@+id/buttonSearch"
-        android:text="Emploi du temps" />
 
     <Button
         android:id="@+id/buttonExit"
@@ -52,24 +52,38 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="14dp"
+        android:background="@drawable/flat_selector"
         android:text="Exit" />
 
     <Button
         android:id="@+id/buttonIHelp"
-        android:layout_width="200dp"
+        android:layout_width="240dp"
         android:layout_height="50dp"
         android:layout_above="@+id/buttonExit"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="14dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/flat_selector"
         android:text="Aidez les autres" />
+
+    <Button
+        android:id="@+id/buttonPlanning"
+        android:layout_width="240dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/buttonSearch"
+        android:layout_alignLeft="@+id/buttonSearch"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/flat_selector"
+        android:drawableLeft="@drawable/ic_calendar"
+        android:paddingRight="10dp"
+        android:text="Emploi du temps" />
 
     <TextView
         android:id="@+id/textUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/buttonPlanning"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="25dp"
+        android:layout_marginTop="14dp"
         android:text="....."
         android:textAppearance="?android:attr/textAppearanceLarge" />
 

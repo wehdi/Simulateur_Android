@@ -1,17 +1,17 @@
 package com.project.simulaturandroid;
 
-import com.project.metier.Beans;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
+import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.project.metier.Beans;
 
 /**
  * 
@@ -61,7 +61,10 @@ public class Loged extends Activity implements View.OnClickListener {
 		buttonCreat.setOnClickListener(this);
 		buttonSearch.setOnClickListener(this);
 		buttonOther.setOnClickListener(this);
-		textYserName.setText("Bienvenu "+Beans.getLogin());
+		//textview.setTextColor(this.getResources().getColor(R.color.orange));
+		//textYserName.setText("Bienvenu " + Beans.getLogin());
+		textYserName.setText(Html.fromHtml("Bienvnu : "+ "<font color='#485089'>" +Beans.getLogin()+ "</font><br><br>"
+	            ));
 		updateBarHandler = new Handler();
 	}
 
@@ -98,7 +101,6 @@ public class Loged extends Activity implements View.OnClickListener {
 			this.startActivity(intentOther);
 			break;
 		default:
-			Log.e("Loged", "Default switch used !!");
 
 		}
 	}
@@ -109,6 +111,10 @@ public class Loged extends Activity implements View.OnClickListener {
 
 	}
 
+	/**
+	 * 
+	 * @param view
+	 */
 	private void lunchLoading(View view) {
 		final ProgressDialog loadpProgressDialog = ProgressDialog.show(this,
 				"Attendez SVP...", "Chargement du contenu");
@@ -133,12 +139,14 @@ public class Loged extends Activity implements View.OnClickListener {
 		}).start();
 		;
 	}
+
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see android.app.Activity#onBackPressed()
 	 */
 	public void onBackPressed() {
-	    // do nothing.
+		// do nothing.
 	}
 
 	/*

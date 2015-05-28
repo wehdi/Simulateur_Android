@@ -60,6 +60,8 @@ public class LunchPlatform extends Activity implements View.OnClickListener {
 		textPassword = (EditText) findViewById(R.id.textPassword);
 		
 		
+		
+		
 	}
 
 	@Override
