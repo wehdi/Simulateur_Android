@@ -419,27 +419,43 @@ containing a value of this type.
         public static final int backgroundlogin2=0x7f020001;
         public static final int flat_selector=0x7f020002;
         public static final int flat_selector_planning=0x7f020003;
-        public static final int ic_calendar=0x7f020004;
-        public static final int ic_ihelp=0x7f020005;
-        public static final int ic_launcher=0x7f020006;
-        public static final int ic_student=0x7f020007;
-        public static final int ic_student64=0x7f020008;
-        public static final int ic_welc=0x7f020009;
-        public static final int login=0x7f02000a;
-        public static final int mapclasss=0x7f02000b;
-        public static final int rect_normal=0x7f02000c;
-        public static final int rect_normal_planning=0x7f02000d;
-        public static final int rect_pressed=0x7f02000e;
-        public static final int rect_pressed_planning=0x7f02000f;
+        public static final int ic_adduser64=0x7f020004;
+        public static final int ic_ask64=0x7f020005;
+        public static final int ic_calendar=0x7f020006;
+        public static final int ic_calendar64=0x7f020007;
+        public static final int ic_event64=0x7f020008;
+        public static final int ic_exit64=0x7f020009;
+        public static final int ic_group50=0x7f02000a;
+        public static final int ic_help64=0x7f02000b;
+        public static final int ic_ihelp=0x7f02000c;
+        public static final int ic_launcher=0x7f02000d;
+        public static final int ic_notif_planning=0x7f02000e;
+        public static final int ic_notify64=0x7f02000f;
+        public static final int ic_notify_event=0x7f020010;
+        public static final int ic_notify_planning=0x7f020011;
+        public static final int ic_notify_vibrate=0x7f020012;
+        public static final int ic_send64=0x7f020013;
+        public static final int ic_student=0x7f020014;
+        public static final int ic_student100=0x7f020015;
+        public static final int ic_student64=0x7f020016;
+        public static final int ic_user64=0x7f020017;
+        public static final int ic_welc=0x7f020018;
+        public static final int login=0x7f020019;
+        public static final int mapclasss=0x7f02001a;
+        public static final int rect_normal=0x7f02001b;
+        public static final int rect_normal_planning=0x7f02001c;
+        public static final int rect_pressed=0x7f02001d;
+        public static final int rect_pressed_planning=0x7f02001e;
+        public static final int test=0x7f02001f;
     }
     public static final class id {
-        public static final int DrawingImageView=0x7f0a0025;
-        public static final int action_settings=0x7f0a0029;
+        public static final int DrawingImageView=0x7f0a0024;
+        public static final int action_settings=0x7f0a002b;
         public static final int alignBounds=0x7f0a0002;
         public static final int alignMargins=0x7f0a0003;
         public static final int bottom=0x7f0a0004;
         public static final int buttonCreate=0x7f0a001e;
-        public static final int buttonCreer=0x7f0a0016;
+        public static final int buttonCreer=0x7f0a0015;
         public static final int buttonExit=0x7f0a0012;
         public static final int buttonHelp=0x7f0a001c;
         public static final int buttonIHelp=0x7f0a001d;
@@ -447,7 +463,7 @@ containing a value of this type.
         public static final int buttonPlanning=0x7f0a0020;
         public static final int buttonSeConnecter=0x7f0a0022;
         public static final int buttonSearch=0x7f0a001f;
-        public static final int buttonSelect=0x7f0a0014;
+        public static final int buttonSelect=0x7f0a0016;
         public static final int buttonSendHelpMe=0x7f0a0017;
         public static final int center=0x7f0a0005;
         public static final int center_horizontal=0x7f0a0006;
@@ -459,7 +475,7 @@ containing a value of this type.
         public static final int fill=0x7f0a000b;
         public static final int fill_horizontal=0x7f0a000c;
         public static final int fill_vertical=0x7f0a000d;
-        public static final int gridview1=0x7f0a0026;
+        public static final int gridview1=0x7f0a0025;
         public static final int horizontal=0x7f0a0000;
         public static final int icon=0x7f0a0019;
         public static final int label=0x7f0a001a;
@@ -467,12 +483,14 @@ containing a value of this type.
         public static final int right=0x7f0a000f;
         public static final int spinner=0x7f0a0013;
         public static final int start=0x7f0a0010;
-        public static final int text=0x7f0a0028;
+        public static final int text=0x7f0a0027;
+        public static final int text2=0x7f0a0028;
+        public static final int text3=0x7f0a0029;
+        public static final int text4=0x7f0a002a;
         public static final int textPassword=0x7f0a0023;
         public static final int textUserName=0x7f0a0021;
-        public static final int textView1=0x7f0a0024;
-        public static final int textt=0x7f0a0027;
-        public static final int timePicker=0x7f0a0015;
+        public static final int textt=0x7f0a0026;
+        public static final int timePicker=0x7f0a0014;
         public static final int top=0x7f0a0011;
         public static final int vertical=0x7f0a0001;
     }
@@ -486,7 +504,8 @@ containing a value of this type.
         public static final int activity_mapclass_layout=0x7f030006;
         public static final int activity_other_layout=0x7f030007;
         public static final int activity_planning_layout=0x7f030008;
-        public static final int fragment_layout=0x7f030009;
+        public static final int fragment2_layout=0x7f030009;
+        public static final int fragment_layout=0x7f03000a;
     }
     public static final class menu {
         public static final int lunch_main=0x7f090000;

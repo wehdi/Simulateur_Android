@@ -5,6 +5,8 @@ package com.project.agent;
  * 
  *  Cette classe se charge de la gestion du contexte
  */
+import java.util.ArrayList;
+
 import jade.core.Agent;
 import jade.core.behaviours.CyclicBehaviour;
 import jade.lang.acl.ACLMessage;
@@ -46,7 +48,7 @@ public class Agent_Contexte extends Agent {
 	 * @author ProBook 450g2
 	 *
 	 */
-	class InfoEvents extends CyclicBehaviour {
+	private class InfoEvents extends CyclicBehaviour {
 
 		@Override
 		public void action() {
@@ -60,6 +62,9 @@ public class Agent_Contexte extends Agent {
 					MessageTemplate.MatchConversationId("notify"));
 			jade.lang.acl.ACLMessage reponse = myAgent.receive(modele);
 			if (reponse != null) {
+				String msg = reponse.getContent();
+				String event = msg.substring(0, msg.indexOf("|"));
+				String event2 = msg.substring(msg.indexOf("|"));
 				/**
 				 * Lance l'intent qui envoi la notification (service)
 				 */
@@ -70,7 +75,7 @@ public class Agent_Contexte extends Agent {
 				 */
 				myIntent.putExtra("titre", "Bienvenu a l'université");
 				myIntent.putExtra("corp_titre", "Bienvenu " + Beans.getLogin());
-				myIntent.putExtra("corp", "Voici les nouvelles informations :");
+				myIntent.putExtra("corp", msg);
 				Agent_Contexte.this.context.startService(myIntent);
 
 				block();
@@ -83,6 +88,12 @@ public class Agent_Contexte extends Agent {
 
 	}
 
+	/**
+	 * 
+	 * @author ProBook 450g2
+	 *
+	 */
+
 	private class WaitingEventChangeMode extends CyclicBehaviour {
 
 		public void action() {
@@ -93,12 +104,16 @@ public class Agent_Contexte extends Agent {
 			if (reponse != null) {
 				String mode = reponse.getContent().toString();
 				if (mode.equals("0")) {
-					AudioManager am = (AudioManager)context.getSystemService(Context.AUDIO_SERVICE);   
-					        am.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
-					          
+					AudioManager am = (AudioManager) context
+							.getSystemService(Context.AUDIO_SERVICE);
+					am.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
+					Intent myIntent = new Intent(Agent_Contexte.this.context,
+							com.project.metier.NotifyServiceCours.class);
+					Agent_Contexte.this.context.startService(myIntent);
 				} else {
-					AudioManager am = (AudioManager)context.getSystemService(Context.AUDIO_SERVICE);   
-			        am.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+					AudioManager am = (AudioManager) context
+							.getSystemService(Context.AUDIO_SERVICE);
+					am.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
 				}
 
 			} else

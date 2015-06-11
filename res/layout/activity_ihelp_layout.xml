@@ -10,7 +10,7 @@
         android:layout_marginLeft="4px"
         android:layout_marginRight="10px"
         android:layout_marginTop="4px"
-        android:src="@drawable/ic_ihelp" >
+        android:src="@drawable/ic_notify64" >
     </ImageView>
 
     <TextView
@@ -21,4 +21,4 @@
         android:textSize="30px" >
     </TextView>
 
-</LinearLayout> 
+</LinearLayout>

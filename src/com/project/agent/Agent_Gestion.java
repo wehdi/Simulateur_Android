@@ -161,16 +161,17 @@ public class Agent_Gestion extends Agent {
 	}
 
 	/**
-	 * Envoi une notification quand le prof est abscent
+	 * Atteend la reception de la demande de l'agent classe pour envoyer une
+	 * notification quand le prof est abscent
 	 * 
 	 * @author ProBook 450g2
 	 *
 	 */
-	@SuppressWarnings("unused")
-	private class NotifyABSProfBehaviour extends Behaviour {
+
+	private class NotifyABSProfBehaviour extends CyclicBehaviour {
 
 		public NotifyABSProfBehaviour(Agent_Gestion agent_Gestion) {
-			// TODO Auto-generated constructor stub
+
 		}
 
 		@Override
@@ -181,14 +182,16 @@ public class Agent_Gestion extends Agent {
 			jade.lang.acl.ACLMessage message = receive(model);
 			if (message != null) {
 				Intent myIntent = new Intent(Agent_Gestion.this.context,
-						com.project.metier.NotifyService.class);
+						com.project.metier.NotifyServiceProfABS.class);
 				/**
 				 * Ajout des msgs de notifications
 				 */
-				myIntent.putExtra("titre", "Abscence du prof");
-				myIntent.putExtra("corp_titre", "Notification d'abscence");
-				myIntent.putExtra("corp",
-						"Le prof est abscent changement dans le cours");
+				/*
+				 * myIntent.putExtra("titre", "Abscence du prof");
+				 * myIntent.putExtra("corp_titre", "Notification d'abscence");
+				 * myIntent.putExtra("corp",
+				 * "Le prof est abscent changement dans le cours");
+				 */
 				Agent_Gestion.this.context.startService(myIntent);
 
 			} else {
@@ -197,15 +200,10 @@ public class Agent_Gestion extends Agent {
 
 		}
 
-		@Override
-		public boolean done() {
-			// TODO Auto-generated method stub
-			return false;
-		}
-
 	}
 
 	/**
+	 * Met a jour le planning
 	 * 
 	 * @author ProBook 450g2
 	 *

@@ -2,7 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:background="@drawable/login"
+    android:orientation="vertical"
+     >
 
     <Button
         android:id="@+id/buttonOther"
@@ -12,6 +14,7 @@
         android:layout_alignLeft="@+id/buttonHelp"
         android:layout_marginBottom="5dp"
         android:background="@drawable/flat_selector"
+        android:drawableLeft="@drawable/ic_event64"
         android:text="Voir Activités" />
 
     <Button
@@ -22,6 +25,7 @@
         android:layout_alignLeft="@+id/buttonIHelp"
         android:layout_marginBottom="5dp"
         android:background="@drawable/flat_selector"
+        android:drawableLeft="@drawable/ic_ask64"
         android:minWidth="100dp"
         android:text="Demander aide" />
 
@@ -33,6 +37,7 @@
         android:layout_alignLeft="@+id/buttonOther"
         android:layout_marginBottom="5dp"
         android:background="@drawable/flat_selector"
+        android:drawableLeft="@drawable/ic_adduser64"
         android:text="Creer groupe" />
 
     <Button
@@ -43,6 +48,7 @@
         android:layout_alignLeft="@+id/buttonCreate"
         android:layout_marginBottom="5dp"
         android:background="@drawable/flat_selector"
+        android:drawableLeft="@drawable/ic_user64"
         android:text="Recherche groupe" />
 
     <Button
@@ -53,6 +59,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="14dp"
         android:background="@drawable/flat_selector"
+        android:drawableLeft="@drawable/ic_exit64"
         android:text="Exit" />
 
     <Button
@@ -63,7 +70,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="5dp"
         android:background="@drawable/flat_selector"
-        android:text="Aidez les autres" />
+        android:text="Aidez les autres"
+        android:drawableLeft="@drawable/ic_help64" />
 
     <Button
         android:id="@+id/buttonPlanning"
@@ -73,7 +81,7 @@
         android:layout_alignLeft="@+id/buttonSearch"
         android:layout_marginBottom="5dp"
         android:background="@drawable/flat_selector"
-        android:drawableLeft="@drawable/ic_calendar"
+        android:drawableLeft="@drawable/ic_calendar64"
         android:paddingRight="10dp"
         android:text="Emploi du temps" />
 

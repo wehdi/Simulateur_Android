@@ -10,7 +10,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_student64"
+        android:icon="@drawable/ic_student100"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <service android:name="jade.android.RuntimeService" />
@@ -26,7 +26,7 @@
         </activity>
         <activity
             android:name=".Loged"
-            android:label="Welcom to the app" >
+            android:label="Bienvenu sur Student Life" >
         </activity>
         <activity
             android:name=".Planning"
@@ -44,7 +44,7 @@
         </activity>
         <activity
             android:name=".NotifyMessage"
-            android:label="TEST" >
+            android:label="Activités en cours" >
         </activity>
         <activity
             android:name=".CreatGroupe"
@@ -56,23 +56,29 @@
         </activity>
         <activity
             android:name=".IHelp"
-            android:label="Aider les autres" >
+            android:label="Aider quelqu&apos;un" >
         </activity>
         <activity
             android:name=".OtherActivities"
-            android:label="Autres" >
+            android:label="Evenements" >
         </activity>
         <activity
             android:name=".FragmentTab"
-            android:label="Autres" >
+            android:label="unniversité" >
         </activity>
         <activity
             android:name=".FragmentTab2"
-            android:label="Autres" >
+            android:label="Sociale" >
         </activity>
 
         <service
             android:name="com.project.metier.NotifyService"
+            android:enabled="true" />
+        <service
+            android:name="com.project.metier.NotifyServiceProfABS"
+            android:enabled="true" />
+        <service
+            android:name="com.project.metier.NotifyServiceCours"
             android:enabled="true" />
     </application>
 

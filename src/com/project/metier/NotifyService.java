@@ -14,7 +14,7 @@ import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
 
-import com.project.simulaturandroid.NotifyMessage;
+import com.project.simulaturandroid.OtherActivities;
 import com.project.simulaturandroid.R;
 
 public class NotifyService extends Service {
@@ -52,27 +52,32 @@ public class NotifyService extends Service {
 		message_corp_titre = intent.getStringExtra("corp_titre");
 		message_corp = intent.getStringExtra("corp");
 
+		String event = message_corp.substring(0, message_corp.indexOf("|"));
+		String event2 = message_corp.substring(message_corp.indexOf("|"));
+
 		/**
 		 * Creation du notification manager
 		 */
 		NotificationManager mgr = (NotificationManager) this
 				.getSystemService(Context.NOTIFICATION_SERVICE);
 
-		Notification note = new Notification(R.drawable.ic_launcher,
+		Notification note = new Notification(R.drawable.ic_notify_event,
 				message_titre, System.currentTimeMillis());
 
 		/**
 		 * Pending intent qui va s'ouvrir ares le click sur la notification
 		 */
-		PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, new Intent(this,
-				NotifyMessage.class), 0);
+
+		PendingIntent pendingIntent = PendingIntent.getActivity(this, 0,
+				new Intent(this, OtherActivities.class), 0);
+
 		note.contentIntent = pendingIntent;
 
 		/**
 		 * Envoi de la notification
 		 */
 
-		note.setLatestEventInfo(this, message_corp_titre, message_corp, pendingIntent);
+		note.setLatestEventInfo(this, message_corp_titre, event, pendingIntent);
 
 		mgr.notify(-1, note);
 		/**

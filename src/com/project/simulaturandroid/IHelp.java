@@ -21,6 +21,7 @@ import com.project.metier.Beans;
 
 public class IHelp extends ListActivity {
 	private ArrayList<String> content;
+	private ArrayList<String> content2;
 	private ArrayList<String> title;
 	private ArrayAdapter<String> adapter;
 	private Beans bean;
@@ -29,6 +30,7 @@ public class IHelp extends ListActivity {
 		super.onCreate(bundle);
 		bean = new Beans();
 		content = new ArrayList<String>();
+		content2 = new ArrayList<String>();
 		title = new ArrayList<String>();
 		content.addAll(bean.getContetnHelp());
 		for (int i = 0; i < bean.getContetnHelp().size(); i++) {
@@ -37,10 +39,10 @@ public class IHelp extends ListActivity {
 					.substring(0, bean.getContetnHelp().get(i).indexOf("|")));
 
 			// bleme ici !!!!!!!!!!!!!
-			content.add(bean
+			content2.add(bean
 					.getContetnHelp()
 					.get(i)
-					.substring(bean.getContetnHelp().get(i).indexOf("|"),
+					.substring(bean.getContetnHelp().get(i).indexOf("|")+1,
 							bean.getContetnHelp().get(i).length()));
 		}
 		;
@@ -54,7 +56,7 @@ public class IHelp extends ListActivity {
 		String item = (String) getListAdapter().getItem(position);
 		new AlertDialog.Builder(this)
 				.setTitle(item)
-				.setMessage(content.get(position))
+				.setMessage(content2.get(position))
 				.setCancelable(true)
 				.setNegativeButton(android.R.string.no,
 						new DialogInterface.OnClickListener() {

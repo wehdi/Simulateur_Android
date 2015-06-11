@@ -104,8 +104,8 @@ public class CreatGroupe extends Activity implements View.OnClickListener {
 			hour = timePicker.getCurrentHour();
 			min = timePicker.getCurrentMinute();
 			this.agentGestion.creatGroupe(
-					String.valueOf(spinner.getSelectedItem()), year + " " + " "
-							+ month + " " + day, hour + ":" + min,
+					String.valueOf(spinner.getSelectedItem()), day + "/" + "/"
+							+ month + "/" + year, hour + ":" + min,
 					Beans.getLogin());
 			Toast.makeText(getApplicationContext(),
 					"Le groupe a bien été créer " + Beans.getLogin(),

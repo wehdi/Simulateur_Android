@@ -7,6 +7,7 @@ import com.project.metier.Beans;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 
@@ -36,6 +37,7 @@ public class Planning extends Activity {
 				bean.getPlanningTab());
 		gridView = (GridView) findViewById(R.id.gridview1);
 		gridView.setAdapter(adapter);
+		gridView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
 	}
 
 	@Override
@@ -48,7 +50,6 @@ public class Planning extends Activity {
 		// bean.getPlanningTab().clear();
 		super.onDestroy();
 
-		Log.i("dd", "doooooom" + bean.getPlanningTabUpdated());
 	}
 
 }

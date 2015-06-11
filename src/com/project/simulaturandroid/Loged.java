@@ -61,10 +61,11 @@ public class Loged extends Activity implements View.OnClickListener {
 		buttonCreat.setOnClickListener(this);
 		buttonSearch.setOnClickListener(this);
 		buttonOther.setOnClickListener(this);
-		//textview.setTextColor(this.getResources().getColor(R.color.orange));
-		//textYserName.setText("Bienvenu " + Beans.getLogin());
-		textYserName.setText(Html.fromHtml("Bienvnu : "+ "<font color='#485089'>" +Beans.getLogin()+ "</font><br><br>"
-	            ));
+		// textview.setTextColor(this.getResources().getColor(R.color.orange));
+		// textYserName.setText("Bienvenu " + Beans.getLogin());
+		String user = Beans.getLogin().toUpperCase();
+		textYserName.setText(Html.fromHtml("Bienvenu : "
+				+ "<font color='#485089'>" + user + "</font><br><br>"));
 		updateBarHandler = new Handler();
 	}
 

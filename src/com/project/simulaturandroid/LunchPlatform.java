@@ -42,11 +42,9 @@ public class LunchPlatform extends Activity implements View.OnClickListener {
 	private ServiceConnection serviceConnection;
 	private AgentContainerHandler agentContainerHandler;
 	
-	
-	
-	
-	
-	
+	/**
+	 * 
+	 */
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +79,8 @@ public class LunchPlatform extends Activity implements View.OnClickListener {
 			if (userName.isEmpty() || password.isEmpty()) {
 				Toast.makeText(getApplicationContext(), tostEmpty,
 						Toast.LENGTH_SHORT).show();
+				textPassword.setText("");
+				textUserName.setText("");
 			} else {
 				/**
 				 * Creation des 3 agents du smartphone
@@ -91,7 +91,8 @@ public class LunchPlatform extends Activity implements View.OnClickListener {
 				Beans.setContext(getApplicationContext());
 				creatAgent("agentGestion", Agent_Gestion.class.getName());
 				creatAgent("agentContexte", Agent_Contexte.class.getName());
-
+				textPassword.setText("");
+				textUserName.setText("");
 			}
 			break;
 

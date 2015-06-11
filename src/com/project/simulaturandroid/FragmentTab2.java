@@ -22,9 +22,9 @@ public class FragmentTab2 extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View v = inflater.inflate(R.layout.fragment_layout, container, false);
-		TextView tv = (TextView) v.findViewById(R.id.text);
-		tv.setText(this.getTag() + " Content !!!");
+		View v = inflater.inflate(R.layout.fragment2_layout, container, false);
+		 TextView tv = (TextView) v.findViewById(R.id.text);
+		 tv.setText(this.getTag() + " Content !!!");
 		return v;
 	}
 }
